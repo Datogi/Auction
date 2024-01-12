@@ -10,8 +10,9 @@ export default async function handler(req, res) {
       const { _id, bidders, current_bid } = await req.body;
 
       const updatedItem = await Items.findByIdAndUpdate(
-        { _id },
-        { bidders, current_bid }
+        _id,
+        { bidders, current_bid },
+        { new: true } // Return the updated document
       );
 
       res.status(200).json({

@@ -69,16 +69,15 @@ function DetailsScreen() {
         ...item,
         current_bid: bid,
         bidders: [
-          ...item.bidders,
           {
             id: session.accessToken,
             avatar: session.user.image,
             name: session.user.name,
             bidAmount: bid,
           },
+          ...item.bidders,
         ],
       };
-      console.log(newItem);
 
       socket.emit("placeBid", newItem);
 

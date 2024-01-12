@@ -15,7 +15,6 @@ io.on("connection", (socket) => {
   console.log("A user connected");
 
   socket.on("placeBid", (bidObject) => {
-    console.log(bidObject);
     io.emit("updateBids", bidObject);
   });
 

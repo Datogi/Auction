@@ -5,12 +5,11 @@ import connectMongo from "@/utils/connectMongo";
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-export default async function addBook(req, res) {
+export default async function addItem(req, res) {
   try {
     await connectMongo();
-    console.log(Items);
     if (req.method === "GET") {
-      const items = await Items.find({});
+      const items = await Items.find();
       res.status(200).json({ items: items });
     }
 
@@ -22,11 +21,23 @@ export default async function addBook(req, res) {
         image,
         starting_bid,
         current_bid,
-        reserve_price,
+
         seller,
         bidders,
         end_time,
       } = req.body;
+      console.log(
+        _id,
+        title,
+        description,
+        image,
+        starting_bid,
+        current_bid,
+
+        seller,
+        bidders,
+        end_time
+      );
 
       const newItem = await Items.create({
         _id,
@@ -35,7 +46,7 @@ export default async function addBook(req, res) {
         image,
         starting_bid,
         current_bid,
-        reserve_price,
+
         seller,
         bidders,
         end_time,

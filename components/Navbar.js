@@ -27,10 +27,7 @@ const NavigationBar = () => {
     <nav className="bg-blue-500 px-4 py-2 h-1/5">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <img
-            className="h-16 w-16"
-            src="https://static.vecteezy.com/system/resources/thumbnails/024/043/963/small/book-icon-clipart-transparent-background-free-png.png"
-          />
+          <img className="h-16 w-16" src="/AU.png" />
         </div>
         <div className="flex items-center">
           {session ? (
@@ -63,11 +60,11 @@ const NavigationBar = () => {
                             Home
                           </Link>
                           <Link
-                            href="/addBook"
+                            href="/addItem"
                             className="z-20 block border-b-2 border-b-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
                             role="menuitem"
                           >
-                            Add book
+                            Add Item
                           </Link>
                           <button
                             onClick={handleSignOut}
